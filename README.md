@@ -9,3 +9,21 @@ Store the data obtained in the  file and use that file in other program.
 4.Convert the buffer to a string using the toString() method.
 
 5.Use the data in your program.
+
+
+
+
+
+
+Node.js Code:
+const fs = require('fs').promises; async function readFile(filePath) {
+try {
+const data = await fs.readFile(filePath); // Corrected file path usage console.log(data.toString());
+const data1 = data.toString();
+await fs.writeFile('Z:\\SUMEET\\Sem_3\\backend\\experiment_2.html', data1); // Added 'await' here console.log('File has been written successfully.'); // Added a success message
+} catch (error) {
+console.error(`Got an error trying to read the file: ${error.message}`); // Fixed template literal
+}
+}
+
+readFile('Z:\\SUMEET\\Sem_3\\backend\\show&hide.html');
